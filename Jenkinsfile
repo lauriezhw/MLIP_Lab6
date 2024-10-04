@@ -16,10 +16,15 @@ pipeline {
                 echo 'Test Step: We run testing tool like pytest here'
 
                 # TODO fill out the path to conda here
-                sudo /opt/anaconda3/etc/profile.d/conda.sh init
+                # sudo /opt/anaconda3/etc/profile.d/conda.sh init
 
                 # TODO Complete the command to run pytest
                 # sudo /opt/anaconda3/etc/profile.d/conda.sh run -n mlip pytest
+
+                python3 -m venv mlip2
+                source mlip2/bin/activate
+                pip install pytest pandas numpy scikit-learn
+                pytest
 
                 echo 'pytest completed'
                 # exit 1 #comment this line after implementing Jenkinsfile
